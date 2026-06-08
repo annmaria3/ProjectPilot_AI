@@ -1,0 +1,127 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-hairline: var(--hairline);
+
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Dark instrument-panel palette */
+  --background: oklch(0.145 0.008 270);
+  --foreground: oklch(0.96 0.005 270);
+
+  --surface: oklch(0.185 0.008 270);
+  --surface-2: oklch(0.225 0.01 270);
+  --hairline: oklch(1 0 0 / 8%);
+
+  --card: oklch(0.185 0.008 270);
+  --card-foreground: oklch(0.96 0.005 270);
+  --popover: oklch(0.195 0.008 270);
+  --popover-foreground: oklch(0.96 0.005 270);
+
+  --primary: oklch(0.75 0.16 162);
+  --primary-foreground: oklch(0.14 0.02 162);
+  --brand: oklch(0.75 0.16 162);
+  --brand-foreground: oklch(0.14 0.02 162);
+
+  --secondary: oklch(0.25 0.01 270);
+  --secondary-foreground: oklch(0.96 0.005 270);
+
+  --muted: oklch(0.23 0.008 270);
+  --muted-foreground: oklch(0.66 0.02 270);
+
+  --accent: oklch(0.78 0.16 70);
+  --accent-foreground: oklch(0.14 0.02 70);
+
+  --warn: oklch(0.78 0.16 70);
+  --danger: oklch(0.65 0.22 25);
+
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.75 0.16 162);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  .font-mono { font-family: var(--font-mono); }
+}
+
+/* Custom range slider — instrument feel */
+input[type="range"].slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: color-mix(in oklab, var(--brand) 20%, transparent);
+  border-radius: 999px;
+  outline: none;
+}
+input[type="range"].slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--brand);
+  border: 2px solid var(--background);
+  cursor: pointer;
+  box-shadow: 0 0 0 1px var(--brand), 0 0 12px color-mix(in oklab, var(--brand) 60%, transparent);
+}
+input[type="range"].slider::-moz-range-thumb {
+  width: 14px; height: 14px; border-radius: 999px;
+  background: var(--brand); border: 2px solid var(--background); cursor: pointer;
+}
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { scrollbar-width: none; }

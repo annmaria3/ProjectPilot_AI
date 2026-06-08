@@ -174,7 +174,7 @@ src/
     └── supabase
 ⚙ Installation Guide
 Step 1 — Clone Repository
-git clone https://github.com/your-username/projectpilot-ai.git
+git clone https://github.com/annmaria3/ProjectPilot_AI-ai.git
 cd projectpilot-ai
 Step 2 — Install Dependencies
 npm install
